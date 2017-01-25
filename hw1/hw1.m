@@ -13,15 +13,16 @@ n = size(x,1);
 
 % Calculate fraction of points outside radius i*sigma
 frac = zeros(3,1);
-str = {'Dataset1','\mu'}
-fracstr = 'Fraction of points outside r = '
+str = {'Dataset1','\mu'};
+fracstr = 'Fraction of points outside r = ';
+k = 3; % Number of circles, (radius = standarddeviation*i)
 for i=1:k
     frac(i,1) = sum(sum((x-mu).^2,2) >= i*sigma)/n;
-    str{i+2} = strcat(fracstr,num2str(i*sigma),' : ',num2str(frac(i,1))) 
+    str{i+2} = strcat(fracstr,num2str(i*sigma),' : ',num2str(frac(i,1))) ;
 end
 
 
-k = 3; % Number of circles, (radius = standarddeviation*i)
+
 figure(1)
 clf
 hold on
